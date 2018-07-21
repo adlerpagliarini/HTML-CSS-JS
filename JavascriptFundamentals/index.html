@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     <!--<script src="1_basics_literals.js"></script>-->
     <!--<script src="2_constructor.js"></script>-->
     <!--<script src="3_prototypes.js"></script>-->
@@ -18,10 +18,15 @@
     <!--<script src="9_promisse.js"></script>-->
     <!--<script src="10_array_manipulation"></script>-->
     <!--<script src="11_arrow_function_variable_scope.js"></script>-->
-    <script src="12_callback.js"></script>
-
+    <!--<script src="12_callback.js"></script>-->
+    <!--<script src="13_observables.js"></script>-->
+    <script src="./dist/bundle.js"></script>
 </head>
 <body>
-    
+    <button id="btn">ClickMe - Observable</button></br>
+    <button id="btnFlat">ClickMe - Observable Request flatMap - IF CLICKED twice will start more one request</button></br>
+    <button id="btnSwitch">ClickMe - Observable Request switchMap - IF CLICKED twice the last request will be canceled if the response still not concluded</button></br>
+    <button id="btnSwitchValue">ClickMe - Observable Value switchMapValue - IF CLICKED twice will reset and start again the counter</button></br>
+    <button id="btnSwitchRequest">ClickMe - Observable Request By ID switchMapRequest - IF CLIKED twice will reset and start again the requests</button></br>
 </body>
 </html>

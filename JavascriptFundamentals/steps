@@ -1,0 +1,13 @@
+https://medium.com/javascript-training/beginner-s-guide-to-webpack-b1f1a3638460
+npm install webpack -g
+npm install webpack-cli -g
+webpack --watch
+npm install webpack-dev-server -g
+
+npm install --save-dev typescript ts-loader
+
+To run
+webpack-dev-server
+webpack
+
+npm install rxjs
