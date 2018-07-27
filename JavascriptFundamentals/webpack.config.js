@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: "./13_observables.ts",
+    entry: "./pt2-RequestsAndArrays/13_observables.ts",
     module: {
       rules: [
         {

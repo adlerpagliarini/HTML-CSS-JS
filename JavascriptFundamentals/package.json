@@ -4,7 +4,7 @@
   "description": "",
   "main": "0_test.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --open --watch"
   },
   "author": "",
   "license": "ISC",
