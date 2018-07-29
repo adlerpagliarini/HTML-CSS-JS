@@ -103,3 +103,35 @@ const combined2 = ages.map(age => age * 2)
                     .filter(age => age >= 40)
                     .sort((a,b) => a - b);
 console.log(combined2);
+
+
+// Implemeting MAP and Update obj properties
+const newArrayAfterMap = companies.map(obj => ({...obj, name: "newValueForName", category: "newValueForCategory"}));
+console.log('newArrayAfterMap:', newArrayAfterMap);
+
+Array.prototype.mapp = function(modifiedFunctionMap){
+  let result = [];
+  console.log('modifiedFunctionMap: ', modifiedFunctionMap);
+  this.forEach(item => result.push(modifiedFunctionMap()(item)));
+
+  return result;
+}
+
+const newArrayAfterMapModified = companies.mapp(obj => (function (){return {...obj, name: "newValueForName", category: "newValueForCategory"}}));
+console.log('newArrayAfterMapModified:', newArrayAfterMapModified);
+
+
+Array.prototype.mappp = function(modifiedFunctionMap){
+  let result = [];
+  console.log('modifiedFunctionMap: ', modifiedFunctionMap);
+  this.forEach(item => result.push(modifiedFunctionMap(item)));
+
+  return result;
+}
+
+const newArrayAfterMapModified2 = companies.mappp(obj => ({...obj, name: "newValueForName", category: "newValueForCategory"}));
+//same as above line
+//const newArrayAfterMapModified2 = companies.mappp(obj => {return {...obj, name: "newValueForName", category: "newValueForCategory"}});
+console.log('newArrayAfterMapModified2:', newArrayAfterMapModified2);
+
+
