@@ -134,4 +134,52 @@ const newArrayAfterMapModified2 = companies.mappp(obj => ({...obj, name: "newVal
 //const newArrayAfterMapModified2 = companies.mappp(obj => {return {...obj, name: "newValueForName", category: "newValueForCategory"}});
 console.log('newArrayAfterMapModified2:', newArrayAfterMapModified2);
 
+// Implemeting Reduce and get sum and higest start value
 
+// SUM values in Arrays
+const sumStart = [1,2,3].reduce((acc, current) => {return acc + current});
+console.log('SumStart', sumStart);
+
+Array.prototype.reducee = function(operate, initialValue){
+  let accumulatedValue = initialValue || this[0];
+  console.log(initialValue);
+  let startIndexAt = initialValue ? 0 : 1;
+
+  for (let i = startIndexAt; i < this.length; i++){
+    accumulatedValue = operate(accumulatedValue, this[i]);
+  }
+
+  return accumulatedValue;
+}
+
+const sumStart2 = [1,2,3].reducee((acc, current) => {return acc + current});
+console.log('sumStart2', sumStart2);
+
+const sumCompanyStart = companies.map(obj => obj.start).reduce((acc, current) => acc + current);
+console.log('sumCompanyStart', sumCompanyStart);
+
+const sumCompanyStart2 = companies.map(obj => obj.start).reducee((acc, current) => acc + current);
+console.log('sumCompanyStart2', sumCompanyStart2);
+
+const sumCompanyStart3 = companies.reduce((acc, current) => { 
+  return { name: acc.name, start: acc.start + current.start}
+}, {name: 'Total', start: 0});
+console.log('sumCompanyStart3', sumCompanyStart3);
+
+
+// HIGHEST START
+const startCompanyHigest = companies.reduce((acc, current) => { 
+  if(acc.start > current.start)
+      return acc;
+  else
+      return current;
+});
+console.log('startCompanyHigest', startCompanyHigest);
+
+const startCompanyHigest2 = companies.reduce((acc, current) => { 
+  if(acc.start > current.start) 
+     return {name: acc.name, start: acc.start};
+  else 
+     return {name: current.name, start: current.start };
+});
+console.log('startCompanyHigest2', startCompanyHigest2);
