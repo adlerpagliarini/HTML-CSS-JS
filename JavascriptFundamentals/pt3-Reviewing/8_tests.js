@@ -1,7 +1,7 @@
 console.log('.');
 
 // contains title and many other fields
-const src1 = [
+let src1 = [
     { id: 1, title: 'title1' },
     { id: 2, title: 'title2' },
     { id: 3, title: 'title3' },
@@ -17,7 +17,7 @@ const src1 = [
   ];
   
   // contains name and many other fields not listed in src1
-  const src2 = [
+  let src2 = [
     { id: 1, name: 'name1' },
     { id: 2, name: 'name2' },
     { id: 3, name: 'name3' },
@@ -36,9 +36,8 @@ const src1 = [
 src1.sort((a,b) => {
     return a.id - b.id;
 });
-src2.sort((a,b) => {
-    return a.id - b.id;
-});
+src2.sort((a,b) => (a.id < b.id) ? -1 : 1);
+console.log(src2);
 
 for(let i = 0; i < src1.length; i++){
   if(src1[i].id == src2[i].id)
@@ -50,6 +49,9 @@ let result = src1.map((element) => {
     return ({...element, ...elementTwo});
 })
 console.log('result', result);
+
+let result2 = src1.map(element => ({...src2.find(s => s.id === element.id),...element}));
+console.log('result2', result2);
 
 /***************************************************************************************/
 function NewUser(name){
@@ -76,3 +78,34 @@ class NewUserc{
 
 const userc = new NewUserc('test');
 console.log('userc', userc.getName());
+
+//******************************************************/
+var myObject = {
+    foo: "bar",
+    func: function() {
+      var self = this;
+      console.log("outer func: this.foo = " + this.foo);
+      console.log("outer func: self.foo = " + self.foo);
+      (function() {
+        console.log("inner func: this.foo = " + this.foo);
+        console.log("inner func: self.foo = " + self.foo);
+      }());
+    }
+  };
+  myObject.func();
+
+
+var sumOne = function (){
+    console.log('sumOne', arguments);
+    console.log(Array.prototype.slice.call(arguments, 0))
+	return Array.prototype.slice.call(arguments, 0).reduce( (acc, current) => acc = acc + current, 0);
+};
+
+var sumTwo = function (number1){
+    console.log('sumTwo', arguments);
+	return function (number2){
+		return number1 + number2;
+	}
+};
+
+console.log('SumA', sumOne(1,2,3), 'SumB', sumTwo(1)(2));

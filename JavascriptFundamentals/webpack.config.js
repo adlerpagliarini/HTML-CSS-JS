@@ -5,6 +5,7 @@ module.exports = {
     //entry: "./pt2-RequestsAndArrays/10_array_manipulation.js",
     //entry: "./pt2-RequestsAndArrays/13_observables.ts",
     //entry: "./pt3-Reviewing/7_3_inheritence_prototype_example.js",
+    //entry: "./pt4-SOLID/5_dependecyInversion.js",
     module: {
       rules: [
         {
@@ -19,7 +20,8 @@ module.exports = {
     },
     output: {
       filename: "./dist/bundle.js",
-      path: path.resolve(__dirname, 'dist')
+      path: path.resolve(__dirname)
+      //path: path.resolve(__dirname, 'dist')
     },
     watch: true
   }
